@@ -2,7 +2,7 @@
     boundary "MCU" as mcu
     boundary "SENSO" as senso
 
-    mcu -> senso: power on
+    mcu -> senso: communicate
     activate mcu
     activate senso
     mcu -> mcu: RS485 install

@@ -1,5 +1,14 @@
 @startuml
-    class microFlow{
-        
+    class RS485{
+        uint8_t baudRate
+        uint8_t ModbusSlaveID
+        uint8_t functionCode
+        uint8_t data
+
+        bool RS485()
+        bool RS485_OnPower()
+        bool RS485_transmit()
+        bool RS485_reciver()
+
     }
-@enduml
+@enduml`

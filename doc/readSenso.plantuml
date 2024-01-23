@@ -1,0 +1,8 @@
+@startuml
+    boundary "MCU" as mcu
+    boundary "SENSO" as senso
+
+    mcu -> senso: power on
+    activate mcu
+    activate senso
+@enduml

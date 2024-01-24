@@ -1,0 +1,23 @@
+@startuml
+
+
+    folder core{
+        artifact main.c
+        artifact main.h
+    }
+
+    folder Interface{
+        folder logData
+    }
+
+    folder Device{
+        folder fulsarSenso
+    }
+
+
+    
+
+
+    core <<-->> Interface
+    Interface <<-->> Device
+@enduml

@@ -1,2 +1,9 @@
 .dist/*
 .vscode/settings.json
+CODE/Drivers/STM32L1xx_HAL_Driver/LICENSE.txt
+CODE/Drivers/STM32L1xx_HAL_Driver/License.md
+CODE/Drivers/CMSIS/LICENSE.txt
+CODE/Drivers/CMSIS/Device/ST/STM32L1xx/LICENSE.txt
+CODE/Drivers/CMSIS/Device/ST/STM32L1xx/License.md
+CODE/.settings/stm32cubeide.project.prefs
+CODE/.settings/language.settings.xml

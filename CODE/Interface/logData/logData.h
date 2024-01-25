@@ -38,6 +38,8 @@ public:
         }
         return instancePtr;
     }
+    
+    void LogInfor(const char *format, ...);
 };
 
 #endif /* LOGDATA_H_ */

@@ -7,7 +7,12 @@
 
 #ifndef LOGDATA_H_
 #define LOGDATA_H_
+
 #include "main.h"
+
+extern UART_HandleTypeDef huart5;
+
+#define LOGI(comment, ...) LogInfor(comment, __VA_ARGS__)
 
 class logData
 {

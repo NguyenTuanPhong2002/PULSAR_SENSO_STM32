@@ -18,6 +18,7 @@ private:
     struct logDataConfig
     {
         /* data */
+        UART_HandleTypeDef *uart{&huart5};
     };
 
     logData(/* args */);

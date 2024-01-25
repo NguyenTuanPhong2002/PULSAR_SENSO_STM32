@@ -8,3 +8,4 @@ CODE/Drivers/CMSIS/Device/ST/STM32L1xx/License.md
 CODE/.settings/stm32cubeide.project.prefs
 CODE/.settings/language.settings.xml
 .vscode/*
+/Debug/

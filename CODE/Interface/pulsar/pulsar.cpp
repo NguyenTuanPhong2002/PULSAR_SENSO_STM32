@@ -26,3 +26,20 @@ void pulsar::modbusOffPower(){
 	HAL_GPIO_WritePin(config.powerPin.Port, config.powerPin.pin, GPIO_PIN_RESET);
 }
 
+// + 5V VCC(MAX485)
+// │                    │
+// ├────────────────────┤
+// │                    │
+// ├───┐                └── RO(Receiver Output)
+// │   │
+// │   │
+// │   │
+// │   └── DI(Driver Input)
+// │
+// ├────── DE(Driver Enable)
+// │
+// ├────── RE(Receiver Enable)
+// │
+// ├── A(A)A(RS485 twisted pair)
+// │
+// └── B(B)B(RS485 twisted pair)

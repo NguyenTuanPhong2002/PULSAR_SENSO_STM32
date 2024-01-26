@@ -25,7 +25,6 @@ private:
 		GPIO_TypeDef *Port;
 		uint16_t pin;
 	};
-	
 
 	struct pulsarConfig
 	{
@@ -34,8 +33,14 @@ private:
 		DMA_HandleTypeDef *dma{&hdma_usart3_rx};
 		pulsarPin powerPin = {
 			.Port = RS485_PWON_GPIO_Port,
-			.pin = RS485_PWON_Pin
-		};
+			.pin = RS485_PWON_Pin};
+
+		pulsarPin DEPin = {
+			.Port = RS485_DE_GPIO_Port,
+			.pin = RS485_DE_Pin};
+		pulsarPin REPin = {
+			.Port = RS485_RE_GPIO_Port,
+			.pin = RS485_RE_Pin};
 	};
 
 	struct modbusData

@@ -58,11 +58,10 @@ private:
 	void modbusOnPower();
 	void modbusOffPower();
 
-	void modbusOnTransmit();
-	void modbusOffTransmit();
+	void modbusTransmit();
+	void modbusReceive();
 
-	void modbusOnReceive();
-	void modbusOffReceive();
+	void modbusOff();
 
 public:
 	static pulsar *getInstance()

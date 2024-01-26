@@ -63,6 +63,8 @@ private:
 
 	void modbusOff();
 
+	uint16_t calculateCRC(uint8_t *data, int length);
+
 public:
 	static pulsar *getInstance()
 	{

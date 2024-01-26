@@ -43,3 +43,21 @@ void pulsar::modbusOffPower(){
 // ├── A(A)A(RS485 twisted pair)
 // │
 // └── B(B)B(RS485 twisted pair)
+
+void pulsar::modbusTransmit(){
+	modbusOnPower();
+	HAL_GPIO_WritePin(config.DEPin.Port, config.DEPin.pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(config.REPin.Port, config.REPin.pin, GPIO_PIN_RESET);
+}
+
+void pulsar::modbusReceive(){
+	modbusOnPower();
+	HAL_GPIO_WritePin(config.DEPin.Port, config.DEPin.pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(config.REPin.Port, config.REPin.pin, GPIO_PIN_SET);
+}
+
+void pulsar::modbusOff(){
+	HAL_GPIO_WritePin(config.DEPin.Port, config.DEPin.pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(config.REPin.Port, config.REPin.pin, GPIO_PIN_RESET);
+	modbusOffPower();
+}

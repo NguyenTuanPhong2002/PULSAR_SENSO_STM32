@@ -37,3 +37,18 @@ void logData::LogInfor(const char *format, ...)
     HAL_UART_Transmit(logData::logConfig.uart, (uint8_t *)data, strlen(data), HAL_MAX_DELAY);
 }
 
+void logData::LogError(const char *format, ...)
+{
+    char data[500] = {};
+
+    va_list args;
+    va_start(args, format);
+    sprintf(data, "[ERROR] ");
+    vsprintf(data + strlen(data), format, args);
+    va_end(args);
+
+    strcat(data, "\r\n");
+
+    HAL_UART_Transmit(logData::logConfig.uart, (uint8_t *)data, strlen(data), HAL_MAX_DELAY);
+}
+

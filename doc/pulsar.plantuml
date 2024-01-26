@@ -1,0 +1,16 @@
+@startuml
+    class pulsar{
+        -*instancePtr
+        -pulsarConfig
+        -modbusData
+
+        -pulsar getInstance()
+        -void modbusOnPower()
+        -void modbusOffPower()
+        -void modbusOnTransmit()
+        -void modbusOffTransmit()
+        -void modbusOnReceive()
+        -void modbusOffReceive()
+
+    }
+@enduml

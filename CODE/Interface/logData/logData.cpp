@@ -19,3 +19,21 @@ logData::logData(/* args */)
 logData::~logData()
 {
 }
+
+void logData::LogInfor(const char *format, ...)
+{
+    char data[500] = {};
+
+    //sprintf(data, "[INFOR] %s  %s\r\n", format, args);
+
+    va_list args;
+    va_start(args, format);
+    sprintf(data, "[INFOR] ");
+    vsprintf(data + strlen(data), format, args);
+    va_end(args);
+
+    strcat(data, "\r\n");
+
+    HAL_UART_Transmit(logData::logConfig.uart, (uint8_t *)data, strlen(data), HAL_MAX_DELAY);
+}
+

@@ -20,30 +20,42 @@ private:
 	pulsar(/* args */);
 	~pulsar();
 
+	struct pulsarPin
+	{
+		GPIO_TypeDef *Port;
+		uint16_t pin;
+	};
+	
+
 	struct pulsarConfig
 	{
 		/* data */
 		UART_HandleTypeDef *uart{&huart3};
 		DMA_HandleTypeDef *dma{&hdma_usart3_rx};
+		pulsarPin powerPin = {
+			.Port = RS485_PWON_GPIO_Port,
+			.pin = RS485_PWON_Pin
+		};
 	};
 
-	typedef struct modbusData
+	struct modbusData
 	{
 		/* data */
-		uint8_t address = 0x126;	// Device Address
+		uint8_t address = 126;	// Device Address
 		uint8_t function = 0x03;	// Function Code
 		uint16_t startAddr; // Starting Address for data to read
 		uint16_t numPoints; // Number of data points to read
 		uint16_t crc;		// CRC (Cyclic Redundancy Check)
 	};
 	static pulsar *instancePtr;
+	pulsarConfig config;
 
 	void modbusOnPower();
 	void modbusOffPower();
 
 	void modbusOnTransmit();
 	void modbusOffTransmit();
-	
+
 	void modbusOnReceive();
 	void modbusOffReceive();
 

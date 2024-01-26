@@ -22,7 +22,7 @@ class logData
 {
 private:
     /* data */
-    logData *instancePtr;
+    static logData *instancePtr;
 
     struct logDataConfig
     {
@@ -30,11 +30,13 @@ private:
         UART_HandleTypeDef *uart{&huart5};
     };
 
+    logDataConfig logConfig;
+
     logData(/* args */);
     ~logData();
 
 public:
-    logData *getInstance()
+    static logData *getInstance(void)
     {
         if (instancePtr == nullptr)
         {

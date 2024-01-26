@@ -26,13 +26,4 @@ public:
     }
 };
 
-Singleton::Singleton(/* args */)
-{
-}
-
-Singleton::~Singleton()
-{
-}
-
-
 #endif /* SINGLETON_H_ */

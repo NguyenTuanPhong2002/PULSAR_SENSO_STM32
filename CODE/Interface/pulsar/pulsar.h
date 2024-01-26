@@ -46,11 +46,11 @@ private:
 	struct modbusData
 	{
 		/* data */
-		uint8_t address = 126;	// Device Address
-		uint8_t function = 0x03;	// Function Code
-		uint16_t startAddr; // Starting Address for data to read
-		uint16_t numPoints; // Number of data points to read
-		uint16_t crc;		// CRC (Cyclic Redundancy Check)
+		uint8_t address = 126;	 // Device Address
+		uint8_t function = 0x03; // Function Code
+		uint16_t startAddr;		 // Starting Address for data to read
+		uint16_t numPoints;		 // Number of data points to read
+		uint16_t crc;			 // CRC (Cyclic Redundancy Check)
 	};
 	static pulsar *instancePtr;
 	pulsarConfig config;

@@ -13,6 +13,7 @@
 extern UART_HandleTypeDef huart5;
 #pragma once
 
+#define LOGI(comment, ...) logData::getInstance()->LogInfor(comment, __VA_ARGS__)
 #define LOGW(comment, ...) logData::getInstance()->LogWarning(comment, __VA_ARGS__)
 
 class logData

@@ -63,7 +63,6 @@ static void MX_USART3_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
 	if (huart->Instance == USART3)
@@ -107,7 +106,9 @@ int main(void)
   MX_UART5_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  pulsar::getInstance()->modbusOnPower();
+  interface::getInstance()->initMain();
+  HAL_Delay(1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */

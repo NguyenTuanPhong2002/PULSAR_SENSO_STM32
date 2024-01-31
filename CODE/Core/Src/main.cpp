@@ -64,6 +64,14 @@ static void MX_USART3_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+{
+	if (huart->Instance == USART3)
+	{
+		pulsar::getInstance()->SET_FLAG();
+		pulsar::getInstance()->Get_size(Size);
+	}
+}
 /* USER CODE END 0 */
 
 /**

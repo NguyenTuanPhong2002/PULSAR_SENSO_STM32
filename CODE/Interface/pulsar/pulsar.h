@@ -2,7 +2,8 @@
  * pulsar.h
  *
  *  Created on: Jan 26, 2024
- *      Author: ACER
+ *      Author: Nguyen Tuan Phong
+ * 		gmail: ntphong011102@gmail.com
  */
 
 #ifndef PULSAR_PULSAR_H_
@@ -10,8 +11,16 @@
 
 #include "main.h"
 
+#include <string.h>
+#include <stdio.h>
+
+#include <cstring> // Include the necessary header for strlen
+#include "../logData/logData.h"
+
 extern UART_HandleTypeDef huart3;
 extern DMA_HandleTypeDef hdma_usart3_rx;
+
+#define LEVEL_BUFFER_SIZE 99U
 
 class pulsar
 {
@@ -42,28 +51,26 @@ private:
 			.Port = RS485_RE_GPIO_Port,
 			.pin = RS485_RE_Pin};
 	};
-
-	struct modbusData
-	{
-		/* data */
-		uint8_t address = 126;	 // Device Address
-		uint8_t function = 0x03; // Function Code
-		uint16_t startAddr;		 // Starting Address for data to read
-		uint16_t numPoints;		 // Number of data points to read
-		uint16_t crc;			 // CRC (Cyclic Redundancy Check)
-	};
-	static pulsar *instancePtr;
 	pulsarConfig config;
 
-	void modbusOnPower();
-	void modbusOffPower();
+	struct parentData
+	{
+		/* data */
+		char buffer[LEVEL_BUFFER_SIZE] = {0};
+		uint8_t size = 0;
+	};
+
+	parentData parent;
+
+	static pulsar *instancePtr;
+	bool pulsarFlag = false;
 
 	void modbusTransmit();
 	void modbusReceive();
-
 	void modbusOff();
 
-	uint16_t calculateCRC(uint8_t *data, int length);
+	uint16_t calculateCRC(const uint8_t *data, uint8_t length);
+	bool pulsarSendCommand(uint8_t *command, uint8_t size, uint32_t timeout);
 
 public:
 	static pulsar *getInstance()
@@ -74,6 +81,19 @@ public:
 		}
 		return instancePtr;
 	}
+	void modbusOnPower();
+	void modbusOffPower();
+
+	void SET_FLAG();
+	void RESET_FLAG();
+	bool GET_FLAG();
+	bool Get_size(uint16_t size);
+
+	bool getFirmwareID();
+	uint16_t hardwareID();
+	uint16_t gain();
+	uint16_t serialNumber();
+	float getFlowVelocity();
 };
 
 #endif /* PULSAR_PULSAR_H_ */

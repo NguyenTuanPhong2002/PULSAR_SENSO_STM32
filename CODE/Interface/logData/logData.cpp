@@ -2,7 +2,8 @@
  * logData.c
  *
  *  Created on: Jan 25, 2024
- *      Author: ACER
+ *      Author: Nguyen Tuan Phong
+ * 		gmail: ntphong011102@gmail.com
  */
 #include <cstring> // Include the header for strlen
 #include <stdio.h>

@@ -2,7 +2,8 @@
  * Singleton.h
  *
  *  Created on: Jan 25, 2024
- *      Author: ACER
+ *      Author: Nguyen Tuan Phong
+ * 		gmail: ntphong011102@gmail.com
  */
 
 #ifndef SINGLETON_H_
